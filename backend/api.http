@@ -1,0 +1,46 @@
+@baseUrl = http://localhost:5000
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhYmEzMGFhZmUzYjY5MGYzZWY5MTJjNyIsImlhdCI6MTc5MTE5NTkwNCwiZXhwIjoxNzkxODAwNzA0fQ.kNRWWNDo21hldM5YG59bzCQOltzkPqvULbzsLrrdnxI
+### Register User
+POST {{baseUrl}}/auth/register
+Content-Type: application/json
+
+{
+    "name": "Anuj",
+    "email": "anuj12@gmail.com",
+    "password": "123456789",
+    "confirmPassword": "123456789"
+}
+###
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+    "email": "anuj12@gmail.com",
+    "password": "123456789"
+}
+
+###Create a found item
+POST {{baseUrl}}/founditem
+Content-Type: application/json
+
+{
+    "title": "Found item title",
+    "description": "Found item description",
+    "category": "Found item category",
+    "dateFound": "2023-05-01"
+}
+
+###Create a lost item
+POST {{baseUrl}}/lostitem
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "title": "Lost item title",
+    "description": "Lost item description",
+    "category": "Lost item category",
+    "dateLost": "2023-05-01",
+    "locationLost": "Lost item location",
+    "photoUrl": "Lost item photo url"
+}
+
